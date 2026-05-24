@@ -13,7 +13,7 @@ config_version=5
 config/name="SuspensionProject"
 run/main_scene="uid://b2cts2akkteqy"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://b007kdpo4jrmb"
+config/icon="uid://dnmb1d3x5ilkm"
 
 [display]
 
