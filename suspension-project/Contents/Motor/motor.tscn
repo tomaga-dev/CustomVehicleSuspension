@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://86rtbsbqjh52"]
+
+[ext_resource type="Script" uid="uid://bu8516ky1rfnk" path="res://Contents/Motor/motor.gd" id="1_s84cm"]
+
+[node name="Motor" type="Node" unique_id=1284692735]
+script = ExtResource("1_s84cm")

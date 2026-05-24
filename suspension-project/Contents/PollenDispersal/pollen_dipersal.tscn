@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dfi266gqclhyn"]
+
+[ext_resource type="Texture2D" uid="uid://wcj542mrmnfi" path="res://Contents/PollenDispersal/Pollen.png" id="1_47uvo"]
+
+[sub_resource type="Curve" id="Curve_47uvo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1851852, 1), 0.0, 0.0, 0, 0, Vector2(0.626409, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_gytnd"]
+curve = SubResource("Curve_47uvo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gytnd"]
+emission_shape = 3
+emission_box_extents = Vector3(100, 3, 100)
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 0.29999998
+initial_velocity_max = 0.39999998
+gravity = Vector3(0, 0, 0)
+damping_min = 0.1
+damping_max = 0.1
+alpha_curve = SubResource("CurveTexture_gytnd")
+turbulence_enabled = true
+turbulence_noise_strength = 0.3
+turbulence_noise_scale = 5.0
+turbulence_noise_speed = Vector3(0, 0.1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkhi"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_47uvo")
+billboard_mode = 1
+proximity_fade_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_1icy4"]
+material = SubResource("StandardMaterial3D_dqkhi")
+size = Vector2(0.3, 0.3)
+
+[node name="PollenDispersal" type="GPUParticles3D" unique_id=1719136260]
+amount = 400
+lifetime = 20.0
+preprocess = 10.0
+visibility_aabb = AABB(-106.69784, -12.825258, -105.14245, 209.71585, 28.490515, 212.83716)
+process_material = SubResource("ParticleProcessMaterial_gytnd")
+draw_pass_1 = SubResource("QuadMesh_1icy4")

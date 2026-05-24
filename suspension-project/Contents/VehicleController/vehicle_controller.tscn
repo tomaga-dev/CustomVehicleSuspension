@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dududhnj10emf"]
+
+[ext_resource type="Script" uid="uid://1ej43ycu6b2q" path="res://Contents/VehicleController/vehicle_controller.gd" id="1_bna8y"]
+[ext_resource type="PackedScene" uid="uid://c5wlj5ir4c2b3" path="res://Contents/VehicleController/Wheelcontroller/wheel_controller.tscn" id="2_u40u2"]
+[ext_resource type="PackedScene" uid="uid://dvtwg7ovv048t" path="res://Contents/TyreSmoke/tyre_smoke.tscn" id="3_kniq7"]
+[ext_resource type="PackedScene" uid="uid://hltmdmgop7pc" path="res://Contents/VehicleController/PIDController/pid_controller.tscn" id="3_lecdh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kniq7"]
+friction = 0.0
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cnrri"]
+size = Vector3(1, 0.2, 1)
+
+[node name="VehicleController" type="RigidBody3D" unique_id=651041430]
+collision_layer = 2
+collision_mask = 271
+mass = 1480.0
+physics_material_override = SubResource("PhysicsMaterial_kniq7")
+script = ExtResource("1_bna8y")
+
+[node name="CollisionShapeBase" type="CollisionShape3D" parent="." unique_id=221188367]
+shape = SubResource("BoxShape3D_cnrri")
+
+[node name="FL" parent="." unique_id=1808193546 instance=ExtResource("2_u40u2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, -1.3)
+
+[node name="Wheel" type="Node3D" parent="FL" unique_id=864801239]
+
+[node name="FR" parent="." unique_id=1088450176 instance=ExtResource("2_u40u2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, -1.3)
+
+[node name="Wheel" type="Node3D" parent="FR" unique_id=1890422074]
+
+[node name="RR" parent="." unique_id=2054662488 instance=ExtResource("2_u40u2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 1.3)
+
+[node name="Wheel" type="Node3D" parent="RR" unique_id=198173472]
+
+[node name="TyreSmoke" parent="RR" unique_id=2022214757 instance=ExtResource("3_kniq7")]
+
+[node name="RL" parent="." unique_id=1086176414 instance=ExtResource("2_u40u2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 1.3)
+
+[node name="Wheel" type="Node3D" parent="RL" unique_id=1875872013]
+
+[node name="TyreSmoke" parent="RL" unique_id=1744006502 instance=ExtResource("3_kniq7")]
+
+[node name="AntiRollController" parent="." unique_id=603100272 instance=ExtResource("3_lecdh")]
+kp = 80000.0

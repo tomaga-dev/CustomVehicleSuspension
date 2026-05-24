@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://d0ibysa656rsu"]
+
+[ext_resource type="PackedScene" uid="uid://dududhnj10emf" path="res://Contents/VehicleController/vehicle_controller.tscn" id="1_e4gom"]
+[ext_resource type="PackedScene" uid="uid://rgn5mth4yx6c" path="res://Contents/Cars/Pretender M3/Wheel/pretender_wheel.tscn" id="2_412nb"]
+[ext_resource type="PackedScene" uid="uid://bug5jy02rfun2" path="res://Contents/Cars/Pretender M3/Body/pretender_m_3_body.tscn" id="3_63c7p"]
+[ext_resource type="PackedScene" uid="uid://k5yl582y7bp0" path="res://Contents/Gearbox/gearbox.tscn" id="4_d7pnp"]
+[ext_resource type="PackedScene" uid="uid://86rtbsbqjh52" path="res://Contents/Motor/motor.tscn" id="5_f5ha4"]
+[ext_resource type="PackedScene" uid="uid://v7ncmxwu6yml" path="res://Contents/Exhaust/exhaust.tscn" id="6_x4yea"]
+[ext_resource type="AudioStream" uid="uid://c10fkn5y14e1a" path="res://Contents/Cars/Pretender M3/Sound/On.wav" id="7_voi03"]
+[ext_resource type="AudioStream" uid="uid://d0uc6hxll4up7" path="res://Contents/Cars/Pretender M3/Sound/Off.wav" id="8_xpekp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6gpc"]
+size = Vector3(1.05, 0.2, 0.909)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63c7p"]
+size = Vector3(1.8, 0.2, 1.7)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g6gpc"]
+radius = 0.3
+height = 1.9
+
+[node name="Pretender M3" unique_id=651041430 node_paths=PackedStringArray("taillights_mesh") instance=ExtResource("1_e4gom")]
+collision_mask = 269
+spring_constant = 90650.0
+spring_damping = 11583.0
+taillights_mesh = NodePath("Pretender M3 Body/Taillights")
+taillights_material_index = 1
+brakelights_intensity = 50.0
+
+[node name="Pretender M3 Body" parent="." index="0" unique_id=1189421741 instance=ExtResource("3_63c7p")]
+
+[node name="Exhaust" parent="." index="1" unique_id=2114070062 instance=ExtResource("6_x4yea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1074047)
+pitch_factor = 1.7
+
+[node name="Acceleration" parent="Exhaust" index="0" unique_id=1089834266]
+stream = ExtResource("7_voi03")
+bus = &"Motor"
+
+[node name="Deceleration" parent="Exhaust" index="1" unique_id=234859178]
+stream = ExtResource("8_xpekp")
+bus = &"Motor"
+
+[node name="CollisionShapeBase" parent="." index="2" unique_id=221188367]
+transform = Transform3D(0.99999976, -0.00026243244, -0.00065233395, 0.00026173075, 0.99999934, -0.0011041947, 0.0006526158, 0.0011040282, 0.9999992, 0, 0, 0)
+
+[node name="CollisionShapeTop" type="CollisionShape3D" parent="." index="3" unique_id=182906611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8227385, 0.40573835)
+shape = SubResource("BoxShape3D_g6gpc")
+
+[node name="CollisionShapeBody" type="CollisionShape3D" parent="." index="4" unique_id=1041644967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_63c7p")
+
+[node name="CollisionShapeFront" type="CollisionShape3D" parent="." index="5" unique_id=291856440]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.15, -1.4704227)
+shape = SubResource("CapsuleShape3D_g6gpc")
+
+[node name="CollisionShapeRear" type="CollisionShape3D" parent="." index="6" unique_id=1555147941]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.15, 1.3610142)
+shape = SubResource("CapsuleShape3D_g6gpc")
+
+[node name="FL" parent="." index="7" unique_id=1808193546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, -0.95)
+wheel_radius = 0.34
+
+[node name="PretenderWheel" parent="FL/Wheel" parent_id_path=PackedInt32Array(864801239) index="0" unique_id=876258751 instance=ExtResource("2_412nb")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="FR" parent="." index="8" unique_id=1088450176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, -0.95)
+wheel_radius = 0.34
+
+[node name="PretenderWheel" parent="FR/Wheel" parent_id_path=PackedInt32Array(1890422074) index="0" unique_id=46214110 instance=ExtResource("2_412nb")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RR" parent="." index="9" unique_id=2054662488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.95)
+wheel_radius = 0.34
+
+[node name="PretenderWheel" parent="RR/Wheel" parent_id_path=PackedInt32Array(198173472) index="0" unique_id=891309467 instance=ExtResource("2_412nb")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RL" parent="." index="10" unique_id=1086176414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 0.95)
+wheel_radius = 0.34
+
+[node name="PretenderWheel" parent="RL/Wheel" parent_id_path=PackedInt32Array(1875872013) index="0" unique_id=1080837628 instance=ExtResource("2_412nb")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Gearbox" parent="." index="12" unique_id=1434106226 instance=ExtResource("4_d7pnp")]
+
+[node name="Motor" parent="." index="13" unique_id=1284692735 instance=ExtResource("5_f5ha4")]
+
+[editable path="Pretender M3 Body"]
+[editable path="Exhaust"]

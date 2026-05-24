@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dwba28or2gkhs"]
+
+[ext_resource type="PackedScene" uid="uid://cbcgvbp1uiwmq" path="res://Contents/Props/Cone/Cone.glb" id="1_vilfe"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xqtnw"]
+friction = 0.9
+rough = true
+bounce = 0.8
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dujen"]
+height = 0.5479584
+radius = 0.044921875
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vilfe"]
+size = Vector3(0.4, 0.021679688, 0.4)
+
+[node name="Cone" type="RigidBody3D" unique_id=1777674108]
+collision_layer = 8
+collision_mask = 3
+mass = 8.0
+physics_material_override = SubResource("PhysicsMaterial_xqtnw")
+
+[node name="Cone2" parent="." unique_id=911240405 instance=ExtResource("1_vilfe")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1914263479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3362503, 0)
+shape = SubResource("CylinderShape3D_dujen")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=466168389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010626547, 0)
+shape = SubResource("BoxShape3D_vilfe")

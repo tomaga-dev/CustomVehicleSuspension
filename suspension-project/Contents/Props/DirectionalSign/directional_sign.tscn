@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cu5i02dtu3c5e"]
+
+[ext_resource type="PackedScene" uid="uid://nmlkihl36i2d" path="res://Contents/Props/DirectionalSign/DirectionalSign.glb" id="1_lhgft"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lhgft"]
+friction = 0.2
+rough = true
+bounce = 0.3
+absorbent = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhgft"]
+size = Vector3(4.4, 2, 0.1)
+
+[node name="DirectionalSign" type="RigidBody3D" unique_id=1053612396]
+collision_layer = 4
+collision_mask = 3
+mass = 200.0
+physics_material_override = SubResource("PhysicsMaterial_lhgft")
+
+[node name="DirectionalSign" parent="." unique_id=1796420314 instance=ExtResource("1_lhgft")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=357899896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98798573, 0)
+shape = SubResource("BoxShape3D_lhgft")

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://vp8gye5v6rvu"]
+
+[ext_resource type="PackedScene" uid="uid://dududhnj10emf" path="res://Contents/VehicleController/vehicle_controller.tscn" id="1_71416"]
+[ext_resource type="PackedScene" uid="uid://bbu30h01lwr0s" path="res://Contents/Cars/Monteri/Wheel/monteri_wheel.tscn" id="2_g6gpc"]
+[ext_resource type="PackedScene" uid="uid://v7ncmxwu6yml" path="res://Contents/Exhaust/exhaust.tscn" id="3_cpqh5"]
+[ext_resource type="PackedScene" uid="uid://cw2tnctqp0f3t" path="res://Contents/Cars/Monteri/Body/monteri_body.tscn" id="3_g6gpc"]
+[ext_resource type="AudioStream" uid="uid://c10fkn5y14e1a" path="res://Contents/Cars/Pretender M3/Sound/On.wav" id="4_7d85e"]
+[ext_resource type="PackedScene" uid="uid://k5yl582y7bp0" path="res://Contents/Gearbox/gearbox.tscn" id="4_7lrqy"]
+[ext_resource type="PackedScene" uid="uid://86rtbsbqjh52" path="res://Contents/Motor/motor.tscn" id="5_kwi3a"]
+[ext_resource type="AudioStream" uid="uid://d0uc6hxll4up7" path="res://Contents/Cars/Pretender M3/Sound/Off.wav" id="5_t1wm8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6gpc"]
+size = Vector3(1.04, 0.2, 0.90887743)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vb3ay"]
+size = Vector3(1.8, 0.2, 2.225)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g6gpc"]
+radius = 0.3
+height = 1.9
+
+[node name="Monteri" unique_id=651041430 node_paths=PackedStringArray("taillights_mesh") instance=ExtResource("1_71416")]
+taillights_mesh = NodePath("MonteriBody/Monteri")
+brakelights_intensity = 4.0
+
+[node name="MonteriBody" parent="." index="0" unique_id=1506857365 instance=ExtResource("3_g6gpc")]
+
+[node name="Exhaust" parent="." index="1" unique_id=2114070062 instance=ExtResource("3_cpqh5")]
+pitch_factor = 1.5
+
+[node name="Acceleration" parent="Exhaust" index="0" unique_id=1089834266]
+stream = ExtResource("4_7d85e")
+bus = &"Motor"
+
+[node name="Deceleration" parent="Exhaust" index="1" unique_id=234859178]
+stream = ExtResource("5_t1wm8")
+bus = &"Motor"
+
+[node name="CollisionShapeTop" type="CollisionShape3D" parent="." index="3" unique_id=182906611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8227385, 0.5431688)
+shape = SubResource("BoxShape3D_g6gpc")
+
+[node name="CollisionShapeBody" type="CollisionShape3D" parent="." index="4" unique_id=1385405129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_vb3ay")
+
+[node name="CollisionShapeFront" type="CollisionShape3D" parent="." index="5" unique_id=291856440]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.15, -1.8)
+shape = SubResource("CapsuleShape3D_g6gpc")
+
+[node name="CollisionShapeRear" type="CollisionShape3D" parent="." index="6" unique_id=1555147941]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.15, 1.9)
+shape = SubResource("CapsuleShape3D_g6gpc")
+
+[node name="FL" parent="." index="7" unique_id=1808193546]
+wheel_radius = 0.34
+
+[node name="MonteriWheel" parent="FL/Wheel" parent_id_path=PackedInt32Array(864801239) index="0" unique_id=650336964 instance=ExtResource("2_g6gpc")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="FR" parent="." index="8" unique_id=1088450176]
+wheel_radius = 0.34
+
+[node name="MonteriWheel" parent="FR/Wheel" parent_id_path=PackedInt32Array(1890422074) index="0" unique_id=1120697764 instance=ExtResource("2_g6gpc")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RR" parent="." index="9" unique_id=2054662488]
+wheel_radius = 0.34
+
+[node name="MonteriWheel" parent="RR/Wheel" parent_id_path=PackedInt32Array(198173472) index="0" unique_id=1409800779 instance=ExtResource("2_g6gpc")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RL" parent="." index="10" unique_id=1086176414]
+wheel_radius = 0.34
+
+[node name="MonteriWheel" parent="RL/Wheel" parent_id_path=PackedInt32Array(1875872013) index="0" unique_id=1672852354 instance=ExtResource("2_g6gpc")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Gearbox" parent="." index="12" unique_id=1434106226 instance=ExtResource("4_7lrqy")]
+
+[node name="Motor" parent="." index="13" unique_id=1284692735 instance=ExtResource("5_kwi3a")]
+
+[editable path="MonteriBody"]
+[editable path="Exhaust"]

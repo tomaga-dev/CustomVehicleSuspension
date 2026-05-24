@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b18clxo387rph"]
+
+[ext_resource type="Script" uid="uid://ckfqxx66xhbm7" path="res://Contents/VehicleHandling/vehicle_handling.gd" id="1_k3gr1"]
+[ext_resource type="Script" uid="uid://df3ok1be8jrr2" path="res://Contents/VehicleController/PIDController/pid_controller.gd" id="2_yk3y4"]
+
+[sub_resource type="Curve" id="Curve_k3gr1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="VehicleHandling" type="Node" unique_id=1927421697]
+script = ExtResource("1_k3gr1")
+omega_curve = SubResource("Curve_k3gr1")
+
+[node name="OmegaController" type="Node" parent="." unique_id=2043146425]
+script = ExtResource("2_yk3y4")
+kp = 50000.0
+ki = 10000.0
+metadata/_custom_type_script = "uid://df3ok1be8jrr2"
+
+[node name="GripController" type="Node" parent="." unique_id=1542447919]
+script = ExtResource("2_yk3y4")
+metadata/_custom_type_script = "uid://df3ok1be8jrr2"

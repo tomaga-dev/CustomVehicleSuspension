@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://7as22vqnk5kl"]
+
+[ext_resource type="PackedScene" uid="uid://but574kixltke" path="res://Contents/Props/Saguaro/Saguaro.glb" id="1_evtjp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_evtjp"]
+friction = 0.1
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_evtjp"]
+height = 8.027344
+
+[node name="Saguaro" unique_id=1908648476 instance=ExtResource("1_evtjp")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1677623851]
+physics_material_override = SubResource("PhysicsMaterial_evtjp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=2135337207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0136719, 0)
+shape = SubResource("CylinderShape3D_evtjp")

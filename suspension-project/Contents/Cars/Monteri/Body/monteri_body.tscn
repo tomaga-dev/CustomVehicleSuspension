@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cw2tnctqp0f3t"]
+
+[ext_resource type="PackedScene" uid="uid://wyy26gvytn80" path="res://Contents/Cars/Monteri/Body/MonteriBody.glb" id="1_tov10"]
+
+[node name="MonteriBody" unique_id=1506857365 instance=ExtResource("1_tov10")]

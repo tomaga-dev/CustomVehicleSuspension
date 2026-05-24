@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dfhqbs7w6xr5r"]
+
+[ext_resource type="PackedScene" uid="uid://dyqc8v3eyofc0" path="res://Contents/Maps/Desert/Desert.glb" id="1_umauy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_umauy"]
+friction = 0.4
+rough = true
+bounce = 1.0
+absorbent = true
+
+[node name="Desert" unique_id=776355461 instance=ExtResource("1_umauy")]
+
+[node name="StaticBody3D" parent="map" parent_id_path=PackedInt32Array(247149737) index="0" unique_id=2023275533]
+physics_material_override = SubResource("PhysicsMaterial_umauy")

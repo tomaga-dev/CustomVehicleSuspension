@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dvtwg7ovv048t"]
+
+[ext_resource type="Texture2D" uid="uid://bw6wruo2bdn3j" path="res://Contents/TyreSmoke/SmokeSheet.png" id="1_n1cdj"]
+
+[sub_resource type="Curve" id="Curve_n1cdj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.120000005, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jktsf"]
+curve = SubResource("Curve_n1cdj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ck2tb"]
+lifetime_randomness = 0.7
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 0.19999999
+initial_velocity_max = 0.9
+angular_velocity_min = 69.999985
+angular_velocity_max = 79.999985
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.19999775
+linear_accel_max = 0.29999775
+alpha_curve = SubResource("CurveTexture_jktsf")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jktsf"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_n1cdj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+proximity_fade_enabled = true
+distance_fade_min_distance = 20.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hrepb"]
+material = SubResource("StandardMaterial3D_jktsf")
+size = Vector2(1.6, 1.6)
+
+[node name="TyreSmoke" type="GPUParticles3D" unique_id=2022214757]
+emitting = false
+amount = 200
+lifetime = 6.0
+visibility_aabb = AABB(-150, -20, -150, 300, 100, 300)
+process_material = SubResource("ParticleProcessMaterial_ck2tb")
+draw_pass_1 = SubResource("QuadMesh_hrepb")

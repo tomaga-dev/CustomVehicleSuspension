@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bug5jy02rfun2"]
+
+[ext_resource type="PackedScene" uid="uid://cru1wgcqscb8u" path="res://Contents/Cars/Pretender M3/Body/Pretender M3 Body.glb" id="1_spkyf"]
+
+[node name="Pretender M3 Body" unique_id=1189421741 instance=ExtResource("1_spkyf")]

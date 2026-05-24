@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b1jvgybshqybu"]
+
+[ext_resource type="PackedScene" uid="uid://bsa0e5opdwxbu" path="res://Contents/Props/DirectionalHint/DirectionalHint.glb" id="1_3jmcr"]
+[ext_resource type="Script" uid="uid://bpbqd38fo16d0" path="res://Contents/Props/DirectionalHint/directional_hint.gd" id="2_ykfbh"]
+[ext_resource type="Texture2D" uid="uid://ci3qo2xt606fe" path="res://Contents/Props/DirectionalHint/DirectionalHint_0.png" id="3_l2stw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7153t"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("3_l2stw")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 20.0
+
+[node name="DirectionalHint" unique_id=1830517085 instance=ExtResource("1_3jmcr")]
+script = ExtResource("2_ykfbh")
+
+[node name="Plate" parent="." index="0" unique_id=1793877892]
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_7153t")

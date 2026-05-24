@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d06o671c7kapk"]
+
+[ext_resource type="Script" uid="uid://cry7d7fsabud5" path="res://Contents/Driver/driver.gd" id="1_skpw6"]
+
+[node name="Driver" type="Node" unique_id=998671763]
+script = ExtResource("1_skpw6")

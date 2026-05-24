@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://v7ncmxwu6yml"]
+
+[ext_resource type="Script" uid="uid://bpn5qipq1km8p" path="res://Contents/Exhaust/exhaust.gd" id="1_bhn4k"]
+
+[node name="Exhaust" type="Node3D" unique_id=2114070062]
+script = ExtResource("1_bhn4k")
+
+[node name="Acceleration" type="AudioStreamPlayer3D" parent="." unique_id=1089834266]
+
+[node name="Deceleration" type="AudioStreamPlayer3D" parent="." unique_id=234859178]

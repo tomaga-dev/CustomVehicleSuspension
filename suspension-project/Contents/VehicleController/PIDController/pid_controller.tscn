@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://hltmdmgop7pc"]
+
+[ext_resource type="Script" uid="uid://df3ok1be8jrr2" path="res://Contents/VehicleController/PIDController/pid_controller.gd" id="1_e26um"]
+
+[node name="PIDController" type="Node" unique_id=1354955772]
+script = ExtResource("1_e26um")

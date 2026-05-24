@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://k5yl582y7bp0"]
+
+[ext_resource type="Script" uid="uid://ceifj5opi8xy1" path="res://Contents/Gearbox/gearbox.gd" id="1_hismi"]
+
+[node name="Gearbox" type="Node" unique_id=1434106226]
+script = ExtResource("1_hismi")
