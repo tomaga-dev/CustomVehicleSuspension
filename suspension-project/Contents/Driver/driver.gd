@@ -6,6 +6,7 @@ signal handling_updated(vehicle: VehicleController)
 
 var controlled_car: VehicleController
 
+var did_action: bool = false
 var did_accelerate: bool = false
 var did_brake: bool = false
 var did_reverse: bool = false
@@ -14,6 +15,7 @@ var did_steer_right: bool = false
 
 
 func clear_input() -> void:
+	did_action = false
 	did_accelerate = false
 	did_brake = false
 	did_reverse = false
@@ -21,6 +23,8 @@ func clear_input() -> void:
 	did_steer_right = false
 
 func get_input() -> void:
+	if Input.is_action_just_pressed("action"):
+		did_action = true
 	if Input.is_action_pressed("accelerate"):
 		did_accelerate = true
 	if Input.is_action_pressed("brake"):
@@ -38,6 +42,7 @@ func _on_vehicle_suspension_updated(delta: float, vehicle: VehicleController) ->
 			if vehicle == controlled_car:
 				clear_input()
 				get_input()
+				vehicle.unflip = did_action
 				vehicle.motor.did_rev_up = did_accelerate
 				handling.did_accelerate = did_accelerate
 				handling.did_brake = did_brake

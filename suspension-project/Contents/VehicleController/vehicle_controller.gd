@@ -42,6 +42,9 @@ var last_skidmark_position: Vector3
 var min_skidmark_distance: float
 var smoke_left: GPUParticles3D
 var smoke_right: GPUParticles3D
+var unflip: bool
+var is_unflipping: bool = false
+var last_rotation: Quaternion
 
 func _ready() -> void:
 	var weight: float = mass * ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -59,16 +62,33 @@ func _ready() -> void:
 			taillights_material.emission = Color(1, 0, 0)
 	smoke_left = get_node_or_null("RL/TyreSmoke")
 	smoke_right = get_node_or_null("RR/TyreSmoke")
+	last_rotation = Quaternion(Vector3.UP, 0)
 #	make_transparent(0.5)
 
 func make_transparent(value: float) -> void:
 	for child in find_children("*", "MeshInstance3D"):
 		child.transparency = value
 
+func _process(_delta: float) -> void:
+	if on_ground:
+		is_unflipping = false
+		unflip = false
+	if is_unflipping:
+		freeze = false
+		unflip = false
+	if unflip:
+		is_unflipping = true
+		freeze = true
+		position = global_position + Vector3.UP * 0.5
+		quaternion = last_rotation
+		angular_velocity = Vector3.ZERO
+
 func _physics_process(delta: float) -> void:
 	turn_radius = get_turn_radius()
 	offset_drive = to_global(driving_force_position) - global_position
 	on_ground = update_suspension(delta)
+	if on_ground:
+		last_rotation = quaternion
 	var rotation_vehicle: Quaternion = quaternion
 	var direction_vehicle: Vector3 = rotation_vehicle * Vector3.FORWARD
 	var direction_velocity: Vector3 = linear_velocity.normalized()
