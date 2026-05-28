@@ -26,7 +26,7 @@ sky_energy_multiplier = 0.5
 ground_bottom_color = Color(0.14621773, 0.129233, 0.110393904, 1)
 ground_horizon_color = Color(1, 1, 1, 1)
 ground_curve = 0.06964399
-ground_energy_multiplier = 0.5
+energy_multiplier = 0.65
 
 [sub_resource type="Sky" id="Sky_rpi05"]
 sky_material = SubResource("ProceduralSkyMaterial_0bico")
