@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://djfjte78s0lbn"]
+
+[ext_resource type="PackedScene" uid="uid://bsudepwafp2mv" path="res://Contents/Props/MoretonBayFig/MoretonBayFig.glb" id="1_e6fhh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e6fhh"]
+friction = 0.33
+rough = true
+bounce = 0.76
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k5bxi"]
+height = 4.3674316
+
+[node name="MoretonBayFig" unique_id=668335910 instance=ExtResource("1_e6fhh")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="8" unique_id=810960536]
+physics_material_override = SubResource("PhysicsMaterial_e6fhh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=99240908]
+transform = Transform3D(1.985, 0, 0, 0, 1.985, 0, 0, 0, 1.985, 0, 3.599024, 0)
+shape = SubResource("CylinderShape3D_k5bxi")

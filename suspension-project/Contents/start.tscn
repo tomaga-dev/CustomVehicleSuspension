@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://7as22vqnk5kl" path="res://Contents/Props/Saguaro/saguaro.tscn" id="14_o5ca2"]
 [ext_resource type="PackedScene" uid="uid://dhv2jsrnthkvf" path="res://Contents/Props/Tamarisk/tamarisk.tscn" id="15_8don6"]
 [ext_resource type="PackedScene" uid="uid://dfi266gqclhyn" path="res://Contents/PollenDispersal/pollen_dipersal.tscn" id="16_n86l7"]
+[ext_resource type="PackedScene" uid="uid://djfjte78s0lbn" path="res://Contents/Props/MoretonBayFig/moreton_bay_fig.tscn" id="17_l568g"]
 [ext_resource type="PackedScene" uid="uid://ppbgs7v6o83h" path="res://Contents/WindTurbine/wind_turbine.tscn" id="17_ndxey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0bico"]
@@ -387,6 +388,15 @@ transform = Transform3D(-0.56644934, 0, -0.82409656, 0, 1, 0, 0.82409656, 0, -0.
 
 [node name="Tamarisk19" parent="Trees" unique_id=991098855 instance=ExtResource("15_8don6")]
 transform = Transform3D(0.07019174, 0, 0.99753356, 0, 1, 0, -0.99753356, 0, 0.07019174, 190.40334, -3.6021132, 128.2907)
+
+[node name="MoretonBayFig" parent="Trees" unique_id=668335910 instance=ExtResource("17_l568g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.686974, 0.60319006, -34.428036)
+
+[node name="MoretonBayFig2" parent="Trees" unique_id=1479429671 instance=ExtResource("17_l568g")]
+transform = Transform3D(0.78942704, 0, -0.6138444, 0, 1, 0, 0.6138444, 0, 0.78942704, 40.258106, 0.6032053, -45.77979)
+
+[node name="MoretonBayFig3" parent="Trees" unique_id=282426844 instance=ExtResource("17_l568g")]
+transform = Transform3D(0.73103225, 0, -0.6823429, 0, 1, 0, 0.6823429, 0, 0.73103225, 75.72168, 0.56197685, -2.6636646)
 
 [node name="WindTurbine" parent="." unique_id=1795856187 instance=ExtResource("17_ndxey")]
 transform = Transform3D(0.86277854, 0, 0.5055821, 0, 1, 0, -0.5055821, 0, 0.86277854, 184.99965, 3.702795, -59.073463)
