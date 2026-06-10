@@ -20,7 +20,6 @@ radius = 0.3
 height = 1.9
 
 [node name="Pretender M3" unique_id=651041430 node_paths=PackedStringArray("taillights_mesh") instance=ExtResource("1_e4gom")]
-collision_mask = 269
 spring_constant = 90650.0
 spring_damping = 11583.0
 taillights_mesh = NodePath("Pretender M3 Body/Taillights")
