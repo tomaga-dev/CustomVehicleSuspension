@@ -69,8 +69,6 @@ shadow_enabled = true
 
 [node name="Monteri" parent="." unique_id=651041430 instance=ExtResource("3_wmpbc")]
 transform = Transform3D(0.9880757, 0, 0.15396889, 0, 1, 0, -0.15396889, 0, 0.9880757, -48.79056, 0.34300005, 8.33729)
-collision_layer = 1
-collision_mask = 1
 physics_material_override = null
 
 [node name="VehicleHandling" parent="Monteri" unique_id=1927421697 instance=ExtResource("4_oj8dr")]
@@ -78,8 +76,6 @@ force_max = 30000.0
 
 [node name="Pretender M3" parent="." unique_id=12509838 instance=ExtResource("8_0bico")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.64292, 0.34334496, -2.786478)
-collision_layer = 1
-collision_mask = 1
 physics_material_override = null
 
 [node name="VehicleHandling" parent="Pretender M3" unique_id=1737348458 instance=ExtResource("4_oj8dr")]
