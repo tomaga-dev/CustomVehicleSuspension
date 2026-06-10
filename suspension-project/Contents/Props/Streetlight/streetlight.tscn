@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ckpkb5tr2j2df"]
+
+[ext_resource type="Script" uid="uid://dy5mg7sp0pyqk" path="res://Contents/Props/Streetlight/streetlight.gd" id="1_jkhhr"]
+[ext_resource type="PackedScene" uid="uid://b2c5er6rb3wy8" path="res://Contents/Props/Streetlight/Streetlight.glb" id="1_wlon6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wlon6"]
+rough = true
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wlon6"]
+height = 4.0
+radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jkhhr"]
+height = 2.399292
+radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wlon6"]
+size = Vector3(1, 0.2, 0.5)
+
+[node name="Streetlight" type="RigidBody3D" unique_id=1519949462]
+collision_layer = 512
+collision_mask = 3
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_wlon6")
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_jkhhr")
+
+[node name="StreetlightBody" parent="." unique_id=190675423 instance=ExtResource("1_wlon6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1939647790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_wlon6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1865323128]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.8656239, 5.01817, 0)
+shape = SubResource("CylinderShape3D_jkhhr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1016769018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4030633, 5.9365206, 0)
+shape = SubResource("BoxShape3D_wlon6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

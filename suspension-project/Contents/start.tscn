@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cr52xtkncapf0" path="res://Contents/Props/Pole/pole.tscn" id="12_si2rs"]
 [ext_resource type="PackedScene" uid="uid://7as22vqnk5kl" path="res://Contents/Props/Saguaro/saguaro.tscn" id="14_o5ca2"]
 [ext_resource type="PackedScene" uid="uid://dhv2jsrnthkvf" path="res://Contents/Props/Tamarisk/tamarisk.tscn" id="15_8don6"]
+[ext_resource type="PackedScene" uid="uid://ckpkb5tr2j2df" path="res://Contents/Props/Streetlight/streetlight.tscn" id="15_dd38n"]
 [ext_resource type="PackedScene" uid="uid://dfi266gqclhyn" path="res://Contents/PollenDispersal/pollen_dipersal.tscn" id="16_n86l7"]
 [ext_resource type="PackedScene" uid="uid://djfjte78s0lbn" path="res://Contents/Props/MoretonBayFig/moreton_bay_fig.tscn" id="17_l568g"]
 [ext_resource type="PackedScene" uid="uid://ppbgs7v6o83h" path="res://Contents/WindTurbine/wind_turbine.tscn" id="17_ndxey"]
@@ -311,6 +312,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.568554, -0.19995093, 110.
 
 [node name="Pole9" parent="Props/Poles" unique_id=60638906 instance=ExtResource("12_si2rs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.568554, -0.19995093, 112.74637)
+
+[node name="Streetlights" type="Node3D" parent="Props" unique_id=511275115]
+
+[node name="Streetlight" parent="Props/Streetlights" unique_id=1519949462 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.13078575, 0, 0.99141073, 0, 1, 0, -0.99141073, 0, 0.13078575, 13.027347, 7.6293945e-06, -56.473423)
+
+[node name="Streetlight2" parent="Props/Streetlights" unique_id=213737880 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.82421523, 0, 0.5662768, 0, 1, 0, -0.5662768, 0, 0.82421523, 50.581657, 0.22150517, -29.766958)
+
+[node name="Streetlight3" parent="Props/Streetlights" unique_id=846109252 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.9991324, 0, 0.041648924, 0, 1, 0, -0.041648924, 0, 0.9991324, 57.988472, 0.22150517, -4.4376354)
+
+[node name="Streetlight4" parent="Props/Streetlights" unique_id=722089063 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.89617693, 0, -0.44369704, 0, 1, 0, 0.44369704, 0, 0.89617693, 51.422092, -0.07965803, 26.760666)
+
+[node name="Streetlight5" parent="Props/Streetlights" unique_id=133675434 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.5154121, 0, -0.8569426, 0, 1, 0, 0.8569426, 0, 0.5154121, 29.132, -0.07965803, 49.86486)
+
+[node name="Streetlight6" parent="Props/Streetlights" unique_id=635519059 instance=ExtResource("15_dd38n")]
+transform = Transform3D(-0.083556145, 0, -0.99650323, 0, 1, 0, 0.99650323, 0, -0.083556145, -2.2145615, -0.07965803, 57.905457)
+
+[node name="Streetlight7" parent="Props/Streetlights" unique_id=345907770 instance=ExtResource("15_dd38n")]
+transform = Transform3D(-0.5003628, 0, -0.86581606, 0, 1, 0, 0.86581606, 0, -0.5003628, -31.749865, -0.07965803, 48.262527)
+
+[node name="Streetlight8" parent="Props/Streetlights" unique_id=1145126791 instance=ExtResource("15_dd38n")]
+transform = Transform3D(-0.81809974, 0, -0.57507676, 0, 1, 0, 0.57507676, 0, -0.81809974, -48.45871, -0.07965851, 31.641083)
+
+[node name="Streetlight9" parent="Props/Streetlights" unique_id=1729485347 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.9968984, 0, 0.07870263, 0, 1, 0, -0.07870263, 0, 0.9968984, -41.1739, -0.07964754, 7.9679112)
+
+[node name="Streetlight11" parent="Props/Streetlights" unique_id=1932377409 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.7550533, 0, 0.6556639, 0, 1, 0, -0.6556639, 0, 0.7550533, -30.168224, -0.07964754, 28.877968)
+
+[node name="Streetlight10" parent="Props/Streetlights" unique_id=189932795 instance=ExtResource("15_dd38n")]
+transform = Transform3D(-0.8502698, 0, 0.52634764, 0, 1, 0, -0.52634764, 0, -0.8502698, -50.73974, -0.07965088, -29.64634)
+
+[node name="Streetlight12" parent="Props/Streetlights" unique_id=658254502 instance=ExtResource("15_dd38n")]
+transform = Transform3D(0.29652503, 0, 0.95502543, 0, 1, 0, -0.95502543, 0, 0.29652503, -14.733795, -0.07965088, 39.261543)
 
 [node name="Saguaros" type="Node3D" parent="." unique_id=961449733]
 

@@ -62,6 +62,7 @@ action={
 3d_physics/layer_3="Road Sign"
 3d_physics/layer_4="Cone"
 3d_physics/layer_9="Pole"
+3d_physics/layer_10="Streetlight"
 
 [physics]
 

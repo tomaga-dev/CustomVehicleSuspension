@@ -16,7 +16,7 @@ size = Vector3(1, 0.2, 1)
 
 [node name="VehicleController" type="RigidBody3D" unique_id=651041430]
 collision_layer = 2
-collision_mask = 271
+collision_mask = 783
 mass = 1480.0
 physics_material_override = SubResource("PhysicsMaterial_kniq7")
 script = ExtResource("1_bna8y")
