@@ -63,6 +63,7 @@ action={
 3d_physics/layer_4="Cone"
 3d_physics/layer_9="Pole"
 3d_physics/layer_10="Streetlight"
+3d_physics/layer_11="Banner"
 
 [physics]
 

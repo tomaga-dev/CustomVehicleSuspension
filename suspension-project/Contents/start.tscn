@@ -17,8 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://dhv2jsrnthkvf" path="res://Contents/Props/Tamarisk/tamarisk.tscn" id="15_8don6"]
 [ext_resource type="PackedScene" uid="uid://ckpkb5tr2j2df" path="res://Contents/Props/Streetlight/streetlight.tscn" id="15_dd38n"]
 [ext_resource type="PackedScene" uid="uid://dfi266gqclhyn" path="res://Contents/PollenDispersal/pollen_dipersal.tscn" id="16_n86l7"]
+[ext_resource type="PackedScene" uid="uid://btpof0lj1hldn" path="res://Contents/Props/Banner/banner2.tscn" id="17_87qrq"]
 [ext_resource type="PackedScene" uid="uid://djfjte78s0lbn" path="res://Contents/Props/MoretonBayFig/moreton_bay_fig.tscn" id="17_l568g"]
 [ext_resource type="PackedScene" uid="uid://ppbgs7v6o83h" path="res://Contents/WindTurbine/wind_turbine.tscn" id="17_ndxey"]
+[ext_resource type="PackedScene" uid="uid://bvkbyow6wys78" path="res://Contents/Props/Banner/banner3.tscn" id="18_1d60l"]
+[ext_resource type="PackedScene" uid="uid://bh6b6lwe74hl7" path="res://Contents/Props/Banner/banner.tscn" id="20_f1p4p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0bico"]
 sky_top_color = Color(0.49019608, 0.7137255, 1, 1)
@@ -69,7 +72,7 @@ shadow_enabled = true
 [node name="DesertForMultimesh" parent="." unique_id=1758417175 instance=ExtResource("5_6mm1r")]
 
 [node name="Monteri" parent="." unique_id=651041430 instance=ExtResource("3_wmpbc")]
-transform = Transform3D(0.9880757, 0, 0.15396889, 0, 1, 0, -0.15396889, 0, 0.9880757, -48.79056, 0.34300005, 8.33729)
+transform = Transform3D(0.9880757, 0, 0.15396889, 0, 1, 0, -0.15396889, 0, 0.9880757, -51.871635, 0.36629838, 4.64209)
 
 [node name="VehicleHandling" parent="Monteri" unique_id=1927421697 instance=ExtResource("4_oj8dr")]
 force_max = 30000.0
@@ -80,7 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.64292, 0.34334496, -2.786
 [node name="VehicleHandling" parent="Pretender M3" unique_id=1737348458 instance=ExtResource("4_oj8dr")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=608577462]
-transform = Transform3D(0.3444589, 0.19755457, -0.9177801, 0, 0.9776083, 0.21043278, 0.9388014, -0.07248544, 0.33674592, -54.142685, 1.8336394, -0.40162802)
+transform = Transform3D(-0.054117024, 0.19402072, -0.97950363, 0, 0.9809411, 0.19430546, 0.9985346, 0.010515233, -0.053085614, -63.377983, 2.6488278, 4.018487)
 fov = 40.0
 script = ExtResource("6_s4fjt")
 
@@ -348,6 +351,17 @@ transform = Transform3D(-0.8502698, 0, 0.52634764, 0, 1, 0, -0.52634764, 0, -0.8
 
 [node name="Streetlight12" parent="Props/Streetlights" unique_id=658254502 instance=ExtResource("15_dd38n")]
 transform = Transform3D(0.29652503, 0, 0.95502543, 0, 1, 0, -0.95502543, 0, 0.29652503, -14.733795, -0.07965088, 39.261543)
+
+[node name="Banner" type="Node3D" parent="Props" unique_id=1170974326]
+
+[node name="Banner" parent="Props/Banner" unique_id=1663678411 instance=ExtResource("20_f1p4p")]
+transform = Transform3D(-0.2527617, 0, 0.96752864, 0, 1, 0, -0.96752864, 0, -0.2527617, 3.7753372, 0.03136009, -74.69896)
+
+[node name="Banner5" parent="Props/Banner" unique_id=1962697031 instance=ExtResource("17_87qrq")]
+transform = Transform3D(-0.18650687, 0, -0.98245364, 0, 1, 0, 0.98245364, 0, -0.18650687, -47.375496, 0.08311999, -48.688004)
+
+[node name="Banner2" parent="Props/Banner" unique_id=1943068857 instance=ExtResource("18_1d60l")]
+transform = Transform3D(-0.25784108, 0, -0.96618736, 0, 1, 0, 0.96618736, 0, -0.25784108, -65.67788, 0.06248659, -34.6839)
 
 [node name="Saguaros" type="Node3D" parent="." unique_id=961449733]
 

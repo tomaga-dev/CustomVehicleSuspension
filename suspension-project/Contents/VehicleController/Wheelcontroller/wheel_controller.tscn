@@ -12,4 +12,4 @@ script = ExtResource("1_lk3yw")
 spring_stiffness_curve = SubResource("Curve_lk3yw")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=828274613]
-collision_mask = 5
+collision_mask = 1029

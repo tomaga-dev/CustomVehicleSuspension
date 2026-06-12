@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://btpof0lj1hldn"]
+
+[ext_resource type="PackedScene" uid="uid://ci85aw60gqt7u" path="res://Contents/Props/Banner/Banner.glb" id="1_q0wbo"]
+[ext_resource type="Texture2D" uid="uid://bj2cit4b85sxn" path="res://Contents/Props/Banner/Ariadne2.png" id="2_53re3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t6wbl"]
+rough = true
+absorbent = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcwd2"]
+albedo_texture = ExtResource("2_53re3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7b7f"]
+albedo_texture = ExtResource("2_53re3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6wbl"]
+size = Vector3(2, 4.9846053, 0.1)
+
+[node name="Banner" type="RigidBody3D" unique_id=1663678411]
+collision_layer = 1024
+collision_mask = 3
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_t6wbl")
+
+[node name="Banner" parent="." unique_id=1635371858 instance=ExtResource("1_q0wbo")]
+
+[node name="BannerBody" parent="Banner" index="0" unique_id=210575077]
+surface_material_override/0 = SubResource("StandardMaterial3D_hcwd2")
+surface_material_override/3 = SubResource("StandardMaterial3D_m7b7f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=241722329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4990606, 0)
+shape = SubResource("BoxShape3D_t6wbl")
+
+[editable path="Banner"]
