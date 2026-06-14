@@ -29,8 +29,7 @@ sky_horizon_color = Color(1, 1, 1, 1)
 sky_curve = 0.019411238
 sky_energy_multiplier = 0.5
 ground_bottom_color = Color(0.14621773, 0.129233, 0.110393904, 1)
-ground_horizon_color = Color(1, 1, 1, 1)
-ground_curve = 0.06964399
+ground_horizon_color = Color(0.40150002, 0.46585003, 0.55, 1)
 energy_multiplier = 0.65
 
 [sub_resource type="Sky" id="Sky_rpi05"]
@@ -40,11 +39,19 @@ sky_material = SubResource("ProceduralSkyMaterial_0bico")
 background_mode = 2
 sky = SubResource("Sky_rpi05")
 tonemap_mode = 2
-tonemap_exposure = 2.6
+tonemap_exposure = 2.01
 glow_intensity = 0.11
 glow_strength = 1.79
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_rb16c"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_1d60l"]
+density = 0.04
+height_falloff = 0.11585329
+edge_fade = 1.4420004
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0bico"]
 size = Vector3(500, 70, 1)
@@ -57,11 +64,22 @@ players_car = NodePath("Monteri")
 environment = SubResource("Environment_gld4s")
 camera_attributes = SubResource("CameraAttributesPractical_rb16c")
 
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1704452855]
+transform = Transform3D(0.7411679, 0, 0.6713198, 0, 1, 0, -0.6713198, 0, 0.7411679, 46.77736, 0, -31.18352)
+size = Vector3(99.20471, 70, 200)
+material = SubResource("FogMaterial_1d60l")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1042532082]
-transform = Transform3D(0.6768118, 0.28765067, 0.67763025, -0.13912827, -0.85392773, 0.50144845, 0.7228894, -0.43366387, -0.53792804, 2.5657973, 3.826301, -2.0227127)
-light_intensity_lux = 42783.47
-light_temperature = 5088.0
+transform = Transform3D(0.6768118, 0.2876508, 0.6776303, -0.13912827, -0.85392785, 0.5014485, 0.7228894, -0.43366382, -0.5379281, 5.515886, 6.2189784, -10.77025)
+light_intensity_lux = 55299.47
+light_temperature = 3328.0
+light_energy = 1.3
 shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=608577462]
+transform = Transform3D(0.60389733, 0.11029739, -0.7893938, 0, 0.9903793, 0.13837993, 0.7970621, -0.08356728, 0.59808743, -59.823223, 1.7602041, 10.666644)
+fov = 37.849285
+script = ExtResource("6_s4fjt")
 
 [node name="Driver" parent="." unique_id=998671763 instance=ExtResource("4_iswu0")]
 
@@ -76,18 +94,17 @@ transform = Transform3D(0.9880757, 0, 0.15396889, 0, 1, 0, -0.15396889, 0, 0.988
 
 [node name="VehicleHandling" parent="Monteri" unique_id=1927421697 instance=ExtResource("4_oj8dr")]
 force_max = 30000.0
+omega_max_drift = 3.0
 
 [node name="Pretender M3" parent="." unique_id=12509838 instance=ExtResource("8_0bico")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.64292, 0.34334496, -2.786478)
 
 [node name="VehicleHandling" parent="Pretender M3" unique_id=1737348458 instance=ExtResource("4_oj8dr")]
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=608577462]
-transform = Transform3D(-0.054117024, 0.19402072, -0.97950363, 0, 0.9809411, 0.19430546, 0.9985346, 0.010515233, -0.053085614, -63.377983, 2.6488278, 4.018487)
-fov = 40.0
-script = ExtResource("6_s4fjt")
+omega_max = 1.0
+omega_max_drift = 2.2
 
 [node name="WorldBounds" type="Node3D" parent="." unique_id=657910008]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WorldBounds" unique_id=656029198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 250)
