@@ -8,7 +8,7 @@ class_name VehicleHandling
 @export var force_max: float = 20000
 @export var brake_max: float = 40000
 @export var boost_factor: float = 1.7
-@export var drift_sensitivity: float = 5
+@export var countersteer_responsiveness: float = 0.9
 @export var omega_max: float = 0.6
 @export var omega_max_drift: float = 1.7
 @export var omega_curve: Curve
@@ -77,12 +77,10 @@ func control_omega(delta: float, velocity: float, omega_wanted: float, time_fact
 	if did_steer_left:
 		if omega_reference < 0: # countersteer
 			apply_boost = true
-			time_factor = 0.9
 		omega_reference = lerp(omega_reference, omega_wanted * value, time_factor * delta)
 	else: if did_steer_right:
 		if omega_reference > 0: # countersteer
 			apply_boost = true
-			time_factor = 0.9
 		omega_reference = lerp(omega_reference, -omega_wanted * value, time_factor * delta)
 	else:
 		if is_cornering:
@@ -125,7 +123,7 @@ func control_drift(delta: float) -> void:
 		else:
 			grip_controller.kp = lerp(grip_controller.kp, kp_steering, 2 * delta)
 			steering = vehicle.steering_angle
-		control_omega(delta, speed, forward * omega_max_drift, drift_sensitivity)
+		control_omega(delta, speed, forward * omega_max_drift, countersteer_responsiveness)
 	if did_brake:
 		brake(brake_max)
 	else: if did_accelerate:
