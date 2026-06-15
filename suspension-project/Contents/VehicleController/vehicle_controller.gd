@@ -45,6 +45,7 @@ var smoke_right: GPUParticles3D
 var unflip: bool
 var is_unflipping: bool = false
 var last_rotation: Quaternion
+var unflip_time_start: int
 
 func _ready() -> void:
 	var weight: float = mass * ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -74,9 +75,12 @@ func _process(_delta: float) -> void:
 		is_unflipping = false
 		unflip = false
 	if is_unflipping:
+		if Time.get_ticks_msec() > unflip_time_start:
+			is_unflipping = false
 		freeze = false
 		unflip = false
 	if unflip:
+		unflip_time_start = Time.get_ticks_msec() + 700
 		is_unflipping = true
 		freeze = true
 		position = global_position + Vector3.UP * 0.5
@@ -137,6 +141,8 @@ func update_wheel_rotation(delta: float, steering: float) -> void:
 func update_tyre_smoke(is_on_ground: bool) -> void:
 	if smoke_left && smoke_right:
 		var drift_angle: float = rad_to_deg(drift_angle_measurement)
+		if linear_velocity.length() < 1:
+			drift_angle = 0
 		var is_drifting: bool = drift_angle < -drift_angle_threshold || drift_angle > drift_angle_threshold
 		if is_on_ground && is_drifting:
 			smoke_left.emitting = true
