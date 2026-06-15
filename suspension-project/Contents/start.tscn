@@ -455,10 +455,10 @@ transform = Transform3D(0.07019174, 0, 0.99753356, 0, 1, 0, -0.99753356, 0, 0.07
 [node name="MoretonBayFig" parent="Trees" unique_id=668335910 instance=ExtResource("17_l568g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.686974, 0.60319006, -34.428036)
 
-[node name="MoretonBayFig2" parent="Trees" unique_id=1479429671 instance=ExtResource("17_l568g")]
+[node name="MoretonBayFig2" parent="Trees" unique_id=147144507 instance=ExtResource("17_l568g")]
 transform = Transform3D(0.78942704, 0, -0.6138444, 0, 1, 0, 0.6138444, 0, 0.78942704, 40.258106, 0.6032053, -45.77979)
 
-[node name="MoretonBayFig3" parent="Trees" unique_id=282426844 instance=ExtResource("17_l568g")]
+[node name="MoretonBayFig3" parent="Trees" unique_id=150125288 instance=ExtResource("17_l568g")]
 transform = Transform3D(0.73103225, 0, -0.6823429, 0, 1, 0, 0.6823429, 0, 0.73103225, 75.72168, 0.56197685, -2.6636646)
 
 [node name="WindTurbine" parent="." unique_id=1795856187 instance=ExtResource("17_ndxey")]
