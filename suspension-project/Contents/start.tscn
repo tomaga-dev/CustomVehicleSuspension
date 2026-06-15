@@ -78,7 +78,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=608577462]
 transform = Transform3D(0.60389733, 0.11029739, -0.7893938, 0, 0.9903793, 0.13837993, 0.7970621, -0.08356728, 0.59808743, -59.823223, 1.7602041, 10.666644)
-fov = 37.849285
+fov = 40.0
 script = ExtResource("6_s4fjt")
 
 [node name="Driver" parent="." unique_id=998671763 instance=ExtResource("4_iswu0")]
@@ -104,7 +104,6 @@ omega_max = 1.0
 omega_max_drift = 2.2
 
 [node name="WorldBounds" type="Node3D" parent="." unique_id=657910008]
-visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WorldBounds" unique_id=656029198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 250)
