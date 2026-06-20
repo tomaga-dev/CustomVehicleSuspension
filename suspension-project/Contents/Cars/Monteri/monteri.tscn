@@ -27,7 +27,7 @@ brakelights_intensity = 4.0
 
 [node name="Exhaust" parent="." index="1" unique_id=2114070062 instance=ExtResource("3_cpqh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.727874)
-pitch_factor = 1.7
+pitch_factor = 2.0
 
 [node name="Acceleration" parent="Exhaust" index="0" unique_id=1089834266]
 stream = ExtResource("4_7d85e")
