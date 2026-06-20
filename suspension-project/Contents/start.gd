@@ -25,13 +25,15 @@ func _physics_process(_delta: float) -> void:
 	var gear: int = players_car.gearbox.gear
 	var force: float = handling.acceleration_force
 	var velocity: float = players_car.linear_velocity.length()
-	var data: Array = [drift_angle_degree, sideways_velocity, gear, force, players_car.rev_normalized, velocity, players_car.has_grip]
+	var velocity_rear: float = players_car.motor.speed_rear_axle
+	var data: Array = [drift_angle_degree, sideways_velocity, gear, force, players_car.rev_normalized, velocity, velocity_rear, players_car.has_grip]
 	var format: String = "Drift Angle: %.0f\n"
 	format += "Sideways Velocity: %.f\n"
 	format += "Gear: %d\n"
 	format += "Acceleration Force: %.0f\n"
 	format += "Rev: %.2f\n"
 	format += "Velocity: %.f\n"
+	format += "Velocity Rear: %.f\n"
 	format += "Grip: %s\n"
 	debug_label.text = format % data
 	if Input.is_action_just_released("ui_cancel"):

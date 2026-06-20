@@ -33,6 +33,7 @@ var has_grip: bool = true
 var moving_forward: bool
 var sideways_velocity: float
 var total_distance_moved: float
+var total_distance_moved_rear: float
 var drift_angle_threshold: float = 20 # degree
 var drift_angle_measurement: float
 var steering_angle: float
@@ -102,6 +103,7 @@ func _physics_process(delta: float) -> void:
 	moving_forward = direction_vehicle.dot(direction_velocity) > 0
 	drift_angle_measurement = asin(cross_product.y)
 	var velocity: float = linear_velocity.dot(direction_vehicle)
+	var velocity_rear: float = motor.speed_rear_axle
 	if linear_velocity.length() > 0.01:
 		steering_angle = asin(wheelbase / turn_radius)
 		if !moving_forward:
@@ -109,6 +111,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		steering_angle = 0
 	total_distance_moved += delta * velocity
+	total_distance_moved_rear += delta * velocity_rear
 	rev_normalized = motor.update(self)
 	gearbox.select_gear(linear_velocity.length(), motor.did_rev_up)
 	exhaust.update(self)
@@ -135,8 +138,8 @@ func update_suspension(delta: float) -> bool:
 func update_wheel_rotation(delta: float, steering: float) -> void:
 	fl.rotate_wheel(delta, total_distance_moved, steering)
 	fr.rotate_wheel(delta, total_distance_moved, steering)
-	rl.rotate_wheel(delta, total_distance_moved, 0)
-	rr.rotate_wheel(delta, total_distance_moved, 0)
+	rl.rotate_wheel(delta, total_distance_moved_rear, 0)
+	rr.rotate_wheel(delta, total_distance_moved_rear, 0)
 
 func update_tyre_smoke(is_on_ground: bool) -> void:
 	if smoke_left && smoke_right:

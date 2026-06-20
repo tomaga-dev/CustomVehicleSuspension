@@ -1,13 +1,18 @@
 extends Node
 
 class_name Motor
+@export var rev_mmin: float = 800 # U/min
+@export var rev_max: float = 9000 # U/min
 
+var m: float = (rev_max - rev_mmin) / rev_max
+var b: float = rev_mmin / rev_max
 var did_rev_up: bool = false
 var volume_acceleration_db: float = 0
 var volume_deceleration_db: float = 0
 var time_start: int = Time.get_ticks_msec()
 var time_now: int
 var time_diff: int = 52 # milliseconds
+var speed_rear_axle: float = 0
 var speed_now: float = 0
 var speed_delta: float = 0.3
 
@@ -29,7 +34,10 @@ func update(car: VehicleController) -> float:
 func get_rev_from_speed(car: VehicleController, v_cut_off: float, cut_off: bool) -> float:
 	var vmax: float = car.gearbox.get_vmax()
 	update_speed(car, v_cut_off, cut_off)
-	var rev_normalized: float = 0.088 + 0.98 * speed_now / vmax
+	speed_rear_axle = speed_now
+	if !car.moving_forward:
+		speed_rear_axle = -speed_rear_axle
+	var rev_normalized: float = b + m * speed_now / vmax
 	set_volume(car, speed_now, v_cut_off)
 	return rev_normalized
 
